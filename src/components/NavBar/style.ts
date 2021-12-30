@@ -3,15 +3,15 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   display: flex;
-  padding: 1rem;
+  padding: 0 1rem;
 
   position: fixed;
   top: 0; left: 0;
 
   background: #000;
 
-  > img {
-    max-width: 30%;
+  a img{
+    max-width: 100%;
   }
 
   z-index: 100;
@@ -23,8 +23,6 @@ export const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
-
-  margin-right: 8rem;
 `;
 
 export const SearchContent = styled.div`

@@ -9,7 +9,6 @@ import { NavBar } from './components/NavBar';
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <NavBar />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
