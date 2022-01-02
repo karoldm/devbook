@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { searchUsers } from '../../services/searcUsers';
 
 import { CardUser } from '../../components/CardUser';
+import { NavBar } from '../../components/NavBar';
 
 import octocat from '../../assets/octocat.png';
 import searchIcon from '../../assets/search-icon.svg';
@@ -38,9 +39,9 @@ export function Home() {
       return;
     }
 
+    setSearch('');
     navigate(`/results/${search}`);
 
-    setSearch('');
   }
 
 
@@ -51,11 +52,7 @@ export function Home() {
       page: 1,
     }
 
-    const res = await searchUsers(params);
-
-    if (res) {
-      setTopUsers(res);
-    }
+    await searchUsers(params).then((res) => setTopUsers(res!));
   }
 
   useEffect(() => {
@@ -64,6 +61,7 @@ export function Home() {
 
   return (
     <Container>
+      <NavBar />
       <Banner>
         <div>
           <span>Stalk People on</span>
@@ -82,9 +80,7 @@ export function Home() {
       <TopUsersContainer>
         <h2>Top Users</h2>
         <TopUsersCards>
-          {topUsers.map((user: User, key: Key) => {
-            return <CardUser {...user} key={key} />
-          })}
+          {topUsers.map((user: User) => <CardUser {...user} key={user.login} />)}
         </TopUsersCards>
       </TopUsersContainer>
     </Container >

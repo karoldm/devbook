@@ -6,11 +6,8 @@ import { Container, SearchContainer, Input, Button, SearchContent } from './styl
 import logo from '../../assets/logo.png';
 import searchIcon from '../../assets/search-icon.svg';
 
-type NavBarProps = {
-  children: ReactNode;
-}
 
-export function NavBar(props: NavBarProps) {
+export function NavBar() {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
@@ -20,9 +17,9 @@ export function NavBar(props: NavBarProps) {
       return;
     }
 
+    setSearch('');
     navigate(`/results/${search}`);
 
-    setSearch('');
   }
 
   return (
@@ -40,7 +37,6 @@ export function NavBar(props: NavBarProps) {
           </SearchContent>
         </SearchContainer>
       </Container>
-      {props.children}
     </>
   );
 }

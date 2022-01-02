@@ -6,6 +6,7 @@ import { searchUsers } from '../../services/searcUsers';
 import { Container, UsersContainer, Title } from './style';
 
 import { CardUser } from '../../components/CardUser';
+import { NavBar } from '../../components/NavBar';
 
 type User = {
   name: string;
@@ -16,28 +17,28 @@ type User = {
 
 export function Results() {
   const [results, setResults] = useState<User[]>([]);
-  const { user } = useParams();
+  const { search } = useParams();
 
 
   async function getUsers() {
     const params = {
-      q: user
+      q: search
     }
 
     await searchUsers(params).then((res) => setResults(res!));
+
   }
 
   useEffect(() => {
     getUsers();
-  }, [user]);
+  }, [search]);
 
   return (
     <Container>
-      <Title>Resultados para {user}</Title>
+      <NavBar />
+      <Title>Resultados para {search}</Title>
       <UsersContainer>
-        {results.map((user: User, key: Key) => {
-          return <CardUser {...user} key={key} />
-        })}
+        {results.map((user: User, key: Key) => <CardUser {...user} key={key} />)}
       </UsersContainer>
     </Container>
   );
