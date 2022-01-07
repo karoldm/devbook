@@ -11,17 +11,31 @@ export const Container = styled.div`
 
   h1, h3 {
     color: white;
+
+    > img {
+      max-width: 1rem;
+    }
   }
 
   img {
     max-width: 100%;
   }
+
+  details {
+  color: #fff;
+
+  summary {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
 `;
 
 export const Stats = styled.section`
   background: var(--filter-background);
   padding: 1.5rem;
   border-radius: 8px;
+  margin-top: 1rem;
 
   display: flex;
   gap: 1rem;
@@ -34,6 +48,7 @@ export const Repos = styled.section`
   background: var(--filter-background);
   padding: 1.5rem;
   border-radius: 8px;
+  margin-top: 1rem;
 
   display: flex;
   align-items: center;

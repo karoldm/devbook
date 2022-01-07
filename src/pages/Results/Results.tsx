@@ -6,7 +6,6 @@ import { searchUsers } from '../../services/searcUsers';
 import { Container, UsersContainer, Title } from './style';
 
 import { CardUser } from '../../components/CardUser';
-import { NavBar } from '../../components/NavBar';
 
 type User = {
   name: string;
@@ -35,7 +34,6 @@ export function Results() {
 
   return (
     <Container>
-      <NavBar />
       <Title>Resultados para {search}</Title>
       <UsersContainer>
         {results.map((user: User, key: Key) => <CardUser {...user} key={key} />)}

@@ -1,10 +1,9 @@
-import { useEffect, useState, Key } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { searchUsers } from '../../services/searcUsers';
 
 import { CardUser } from '../../components/CardUser';
-import { NavBar } from '../../components/NavBar';
 
 import octocat from '../../assets/octocat.png';
 import searchIcon from '../../assets/search-icon.svg';
@@ -61,10 +60,9 @@ export function Home() {
 
   return (
     <Container>
-      <NavBar />
       <Banner>
         <div>
-          <span>Stalk People on</span>
+          <span>Stalk people on</span>
           <span>Github!</span>
           <SearchContainer>
             <Input
@@ -78,7 +76,7 @@ export function Home() {
         <img src={octocat} alt='octocat' />
       </Banner>
       <TopUsersContainer>
-        <h2>Top Users</h2>
+        <h2>Top users</h2>
         <TopUsersCards>
           {topUsers.map((user: User) => <CardUser {...user} key={user.login} />)}
         </TopUsersCards>

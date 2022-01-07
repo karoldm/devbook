@@ -4,8 +4,6 @@ import App from './App';
 
 import GlobalStyle from './styles/global';
 
-import { NavBar } from './components/NavBar';
-
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
