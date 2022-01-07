@@ -38,9 +38,9 @@ export function Home() {
       return;
     }
 
-    setSearch('');
     navigate(`/results/${search}`);
 
+    setSearch('');
   }
 
 
@@ -51,7 +51,11 @@ export function Home() {
       page: 1,
     }
 
-    await searchUsers(params).then((res) => setTopUsers(res!));
+    const res = await searchUsers(params);
+
+    if (res) {
+      setTopUsers(res);
+    }
   }
 
   useEffect(() => {
@@ -78,7 +82,9 @@ export function Home() {
       <TopUsersContainer>
         <h2>Top users</h2>
         <TopUsersCards>
-          {topUsers.map((user: User) => <CardUser {...user} key={user.login} />)}
+          {topUsers.map((user: User, key: Key) => {
+            return <CardUser {...user} key={key} />
+          })}
         </TopUsersCards>
       </TopUsersContainer>
     </Container >

@@ -8,26 +8,22 @@ export const Container = styled.div`
 
   border-radius: 8px;
 
-  &:hover {
-    cursor: pointer;
+  > img {
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
   }
 
-  > img {
-  max-width: 100%;
-  border-radius: 8px 8px 0 0;
-}
-
   p {
-  color: white;
-  padding: 1rem;
-  font-size: 0.8rem;
-}
+    color: white;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
 `;
 
 export const UserInfo = styled.div`
-display: flex;
-justify-content: space-between;
-padding: 1rem;
-color: #fff;
-font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: #fff;
+  font-size: 1rem;
 `;

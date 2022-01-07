@@ -16,27 +16,32 @@ type User = {
 
 export function Results() {
   const [results, setResults] = useState<User[]>([]);
-  const { search } = useParams();
+  const { user } = useParams();
 
 
   async function getUsers() {
     const params = {
-      q: search
+      q: user
     }
 
     await searchUsers(params).then((res) => setResults(res!));
-
   }
 
   useEffect(() => {
     getUsers();
-  }, [search]);
+  }, [user]);
 
   return (
     <Container>
+<<<<<<< HEAD
       <Title>Resultados para {search}</Title>
+=======
+      <Title>Resultados para {user}</Title>
+>>>>>>> parent of bce6408 (feat: user stats page)
       <UsersContainer>
-        {results.map((user: User, key: Key) => <CardUser {...user} key={key} />)}
+        {results.map((user: User, key: Key) => {
+          return <CardUser {...user} key={key} />
+        })}
       </UsersContainer>
     </Container>
   );
