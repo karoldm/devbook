@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Container, SearchContainer, Input, Button, SearchContent } from './style';
@@ -6,11 +6,8 @@ import { Container, SearchContainer, Input, Button, SearchContent } from './styl
 import logo from '../../assets/logo.png';
 import searchIcon from '../../assets/search-icon.svg';
 
-type NavBarProps = {
-  children: ReactNode;
-}
 
-export function NavBar(props: NavBarProps) {
+export function NavBar() {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
@@ -35,12 +32,12 @@ export function NavBar(props: NavBarProps) {
               type='search'
               placeholder='Pesquisar'
               onChange={event => setSearch(event.target.value)}
+              value={search}
             />
             <Button onClick={handleSearch}><img src={searchIcon} alt='search' /></Button>
           </SearchContent>
         </SearchContainer>
       </Container>
-      {props.children}
     </>
   );
 }

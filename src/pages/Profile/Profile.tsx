@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import { Container, Stats, Repos } from './style';
 
-import { api } from '../../services/api';
+import api from '../../services/api';
 
 type Repositorio = {
   name: string;

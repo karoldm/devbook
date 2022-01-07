@@ -73,6 +73,7 @@ export function Home() {
               type='search'
               placeholder='Pesquisar'
               onChange={event => setSearch(event.target.value)}
+              value={search}
             />
             <Button onClick={handleSearch}><img src={searchIcon} alt='search icon' /></Button>
           </SearchContainer>
@@ -82,8 +83,8 @@ export function Home() {
       <TopUsersContainer>
         <h2>Top users</h2>
         <TopUsersCards>
-          {topUsers.map((user: User, key: Key) => {
-            return <CardUser {...user} key={key} />
+          {topUsers.map((user: User) => {
+            return <CardUser {...user} key={user.login} />
           })}
         </TopUsersCards>
       </TopUsersContainer>
