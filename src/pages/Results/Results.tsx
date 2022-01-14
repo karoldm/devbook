@@ -29,7 +29,7 @@ export function Results() {
 
   useEffect(() => {
     getUsers();
-  }, [search]);
+  }, [getUsers]);
 
   return (
     <Container>
