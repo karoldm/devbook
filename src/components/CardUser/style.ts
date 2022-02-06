@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 15rem; 
+  height: 25rem;
   display: flex;
   flex-direction: column;
   background: var(--filter-background);
 
   border-radius: 8px;
+  overflow: hidden;
 
   > img {
     max-width: 100%;

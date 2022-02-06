@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Container, Stats, Repos } from './style';
 
@@ -63,9 +63,9 @@ export function Profile() {
         <summary> Repos</summary>
         <Repos>
           {repos.map((repo) =>
-            <Link to={repo.url} key={repo.id}>
+            <a href={repo.url} key={repo.id} target='_blank'>
               <img src={`https://github-readme-stats.vercel.app/api/pin/?username=${login}&repo=${repo.name}&title_color=FFF&text_color=696969&bg_color=151515&hide_border=true&icon_color=79FE96`} alt='user repositories' />
-            </Link>
+            </a>
           )}
         </Repos>
       </details>

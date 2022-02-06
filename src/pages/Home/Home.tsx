@@ -60,7 +60,7 @@ export function Home() {
 
   useEffect(() => {
     getUsers();
-  }, [getUsers]);
+  }, []);
 
   return (
     <Container>

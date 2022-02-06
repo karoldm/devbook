@@ -79,7 +79,7 @@ export const TopUsersContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   gap: 2rem;
   margin: 0 3rem;
   background: var(--filter-background);
@@ -113,4 +113,7 @@ export const TopUsersCards = styled.section`
   grid-template-columns: auto;
   grid-auto-flow: column;
   gap: 2rem;
+  
+  padding: 0 1.5rem;
+  
 `;

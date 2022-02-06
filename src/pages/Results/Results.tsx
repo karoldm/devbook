@@ -7,12 +7,24 @@ import { Container, UsersContainer, Title } from './style';
 
 import { CardUser } from '../../components/CardUser';
 
+import octocat from '../../assets/octocat.png';
+
 type User = {
   name: string;
   login: string;
   avatar_url: string;
   bio: string;
 }
+
+const teste: User[] = [
+  {
+    name: 'karol',
+    login: 'karoldm',
+    avatar_url: octocat,
+    bio: 'string'
+  },
+
+];
 
 export function Results() {
   const [results, setResults] = useState<User[]>([]);
@@ -35,7 +47,7 @@ export function Results() {
     <Container>
       <Title>Resultados para {search}</Title>
       <UsersContainer>
-        {results.map((user: User, key: Key) => {
+        {teste.map((user: User, key: Key) => {
           return <CardUser {...user} key={key} />
         })}
       </UsersContainer>
