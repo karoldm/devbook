@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -6,16 +6,16 @@ export const Container = styled.div`
   padding: 0 1rem;
 
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
 
   background: #000;
 
-  a img{
+  a img {
     max-width: 100%;
   }
 
   z-index: 100;
-
 `;
 
 export const SearchContainer = styled.div`
@@ -28,7 +28,7 @@ export const SearchContainer = styled.div`
 
 export const SearchContent = styled.div`
   display: flex;
-  background: #DCDAF6;
+  background: #dcdaf6;
   border-radius: 22px;
   border: 3px solid var(--primary);
 `;
@@ -39,13 +39,12 @@ export const Input = styled.input`
   outline: none;
   padding: 0 1rem;
   width: 18rem;
-  background: #DCDAF6;
+  background: #dcdaf6;
 
   font-weight: normal;
   font-size: 1.5rem;
   line-height: 2.2rem;
   color: #656565;
-
 `;
 
 export const Button = styled.button`

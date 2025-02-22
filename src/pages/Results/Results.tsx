@@ -35,13 +35,12 @@ export function Results() {
       const res = await searchUsers(params);
 
       if (res) {
-        setTimeout(() => {
-          setResults((prev) => [...prev, ...res]);
-          setLoading(false);
-        }, 1000);
+        setResults((prev) => [...prev, ...res]);
       }
     } catch (err) {
       alert(err);
+    } finally {
+      setLoading(false);
     }
   }
 

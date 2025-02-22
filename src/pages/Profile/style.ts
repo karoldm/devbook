@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 5rem;
@@ -9,7 +9,8 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 2rem;
 
-  h1, h3 {
+  h1,
+  h3 {
     color: white;
 
     > img {
@@ -22,13 +23,13 @@ export const Container = styled.div`
   }
 
   details {
-  color: #fff;
+    color: #fff;
 
-  summary {
-    font-size: 1.2rem;
-    font-weight: bold;
+    summary {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
   }
-}
 `;
 
 export const Stats = styled.section`

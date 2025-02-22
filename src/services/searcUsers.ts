@@ -8,19 +8,18 @@ type User = {
 };
 
 export async function searchUsers(params: any) {
-  const res = await api.get("/search/users", {
-    params: params,
-  });
-
   try {
+    const res = await api.get("/search/users", {
+      params: params,
+    });
     if (res.status === 200) {
       const users: User[] = [];
 
-      res.data.items.forEach(async (user: User) => {
-        const res = await api.get(`/users/${user.login}`);
+      for (const user of res.data.items) {
+        const userRes = await api.get(`/users/${user.login}`);
 
-        if (res.status === 200) {
-          const { name, bio, avatar_url, login } = res.data;
+        if (userRes.status === 200) {
+          const { name, bio, avatar_url, login } = userRes.data;
 
           users.push({
             name: name,
@@ -29,7 +28,7 @@ export async function searchUsers(params: any) {
             bio: bio,
           });
         }
-      });
+      }
 
       return users;
     }

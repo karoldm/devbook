@@ -55,13 +55,12 @@ export function Home() {
       const res = await searchUsers(params);
 
       if (res) {
-        setTimeout(() => {
-          setTopUsers(res as User[]);
-          setLoading(false);
-        }, 1000);
+        setTopUsers(res as User[]);
       }
     } catch (err) {
       alert(err);
+    } finally {
+      setLoading(false);
     }
   }
 

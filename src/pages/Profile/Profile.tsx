@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { Container, Stats, Repos } from './style';
+import { Container, Repos, Stats } from "./style";
 
-import api from '../../services/api';
+import api from "../../services/api";
 
 type Repositorio = {
   name: string;
   id: string;
   url: string;
-}
+};
 
 export function Profile() {
   const [repos, setRepos] = useState<Repositorio[]>([]);
@@ -27,9 +27,8 @@ export function Profile() {
           repositorios.push({
             name: name,
             id: id,
-            url: `https://github.com/${login}/${name}`
+            url: `https://github.com/${login}/${name}`,
           });
-
         });
 
         setRepos(repositorios);
@@ -41,7 +40,7 @@ export function Profile() {
 
   useEffect(() => {
     getRepos();
-  }, [login])
+  }, [login]);
 
   return (
     <Container>
@@ -51,22 +50,25 @@ export function Profile() {
         <Stats>
           <img
             src={`https://github-readme-stats.vercel.app/api?username=${login}&title_color=FFF&text_color=696969&bg_color=151515&hide_border=true&show_icons=true&icon_color=79FE96`}
-            alt='user stats'
+            alt="user stats"
           />
           <img
             src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${login}&layout=compact&title_color=FFF&text_color=696969&bg_color=151515&hide_border=true`}
-            alt='user stats'
+            alt="user stats"
           />
         </Stats>
       </details>
       <details>
         <summary> Repos</summary>
         <Repos>
-          {repos.map((repo) =>
-            <a href={repo.url} key={repo.id} target='_blank'>
-              <img src={`https://github-readme-stats.vercel.app/api/pin/?username=${login}&repo=${repo.name}&title_color=FFF&text_color=696969&bg_color=151515&hide_border=true&icon_color=79FE96`} alt='user repositories' />
+          {repos.map((repo) => (
+            <a href={repo.url} key={repo.id} target="_blank">
+              <img
+                src={`https://github-readme-stats.vercel.app/api/pin/?username=${login}&repo=${repo.name}&title_color=FFF&text_color=696969&bg_color=151515&hide_border=true&icon_color=79FE96`}
+                alt="user repositories"
+              />
             </a>
-          )}
+          ))}
         </Repos>
       </details>
     </Container>

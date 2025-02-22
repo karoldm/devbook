@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 8rem;
@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  
+
   width: 100%;
 `;
 
@@ -40,7 +40,7 @@ export const Banner = styled.section`
 export const SearchContainer = styled.div`
   display: flex;
   margin-top: 3rem;
-  background: #DCDAF6;
+  background: #dcdaf6;
   border-radius: 8px;
 `;
 
@@ -50,13 +50,12 @@ export const Input = styled.input`
   border: 0;
   outline: none;
   padding: 0 1rem;
-  background: #DCDAF6;
+  background: #dcdaf6;
 
   font-weight: normal;
   font-size: 1.5rem;
   line-height: 2.7rem;
   color: #656565;
-
 `;
 
 export const Button = styled.button`
@@ -88,18 +87,18 @@ export const TopUsersContainer = styled.div`
 
   overflow-x: scroll;
 
-  &::-webkit-scrollbar { 
+  &::-webkit-scrollbar {
     height: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.2)
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: var(--filter-background);
     border-radius: 8px;
-  } 
+  }
 
   h2 {
     color: white;
@@ -113,7 +112,6 @@ export const TopUsersCards = styled.section`
   grid-template-columns: auto;
   grid-auto-flow: column;
   gap: 2rem;
-  
+
   padding: 0 1.5rem;
-  
 `;
