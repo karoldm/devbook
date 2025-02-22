@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 8rem;
@@ -6,7 +6,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex: 1;
 
   padding: 2rem 4rem;
   gap: 2rem;
@@ -27,4 +28,16 @@ export const UsersContainer = styled.main`
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+`;
+
+export const LoadMoreButton = styled.button`
+  border: none;
+  outline: none;
+  border-radius: 32px;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 `;

@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import { Container, UserInfo } from './style';
+import { Link } from "react-router-dom";
+import { Container, UserInfo } from "./style";
 
 type User = {
   name: string;
   login: string;
   avatar_url: string;
   bio: string;
-}
+};
 
 export function CardUser({ name, login, avatar_url, bio }: User) {
   return (
@@ -15,7 +15,7 @@ export function CardUser({ name, login, avatar_url, bio }: User) {
         <img src={avatar_url} alt={`${name} Avatar`} />
         <UserInfo>
           <strong>{name}</strong>
-          <strong>{'@' + login}</strong>
+          <strong>{"@" + login}</strong>
         </UserInfo>
         <p>{bio}</p>
       </Container>

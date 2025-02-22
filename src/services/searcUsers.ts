@@ -1,25 +1,22 @@
-import api from './api';
-
+import api from "./api";
 
 type User = {
   name: string;
   login: string;
   avatar_url: string;
   bio: string;
-}
+};
 
 export async function searchUsers(params: any) {
-  const res = await api.get('/search/users', {
-    params: params
+  const res = await api.get("/search/users", {
+    params: params,
   });
 
   try {
-
     if (res.status === 200) {
       const users: User[] = [];
 
       res.data.items.forEach(async (user: User) => {
-
         const res = await api.get(`/users/${user.login}`);
 
         if (res.status === 200) {
@@ -29,16 +26,13 @@ export async function searchUsers(params: any) {
             name: name,
             login: login,
             avatar_url: avatar_url,
-            bio: bio
+            bio: bio,
           });
-
         }
       });
 
       return users;
-
     }
-
   } catch (e) {
     console.log(e);
   }

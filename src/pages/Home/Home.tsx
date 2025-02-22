@@ -1,60 +1,67 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { searchUsers } from '../../services/searcUsers';
+import { searchUsers } from "../../services/searcUsers";
 
-import { CardUser } from '../../components/CardUser';
+import octocat from "../../assets/octocat.png";
+import searchIcon from "../../assets/search-icon.svg";
 
-import octocat from '../../assets/octocat.png';
-import searchIcon from '../../assets/search-icon.svg';
-
+import { CardUser } from "../../components/CardUser";
+import { Loading } from "../../components/Loading";
 import {
-  Container,
   Banner,
-  TopUsersContainer,
-  Input,
   Button,
+  Container,
+  Input,
   SearchContainer,
-  TopUsersCards
-} from './style';
-
+  TopUsersCards,
+  TopUsersContainer,
+} from "./style";
 
 type User = {
   name: string;
   login: string;
   avatar_url: string;
   bio: string;
-}
+};
 
 export function Home() {
   const [topUsers, setTopUsers] = useState<User[]>([]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
 
   function handleSearch() {
-    if (search.trim() === '') {
+    if (search.trim() === "") {
       alert("Campo vazio!");
       return;
     }
 
     navigate(`/results/${search}`);
 
-    setSearch('');
+    setSearch("");
   }
 
-
   async function getUsers() {
-    const params = {
-      q: 'followers:>=1000',
-      per_page: 10,
-      page: 1,
-    }
+    try {
+      setLoading(true);
 
-    const res = await searchUsers(params);
+      const params = {
+        q: "followers:>=1000",
+        per_page: 10,
+        page: 1,
+      };
 
-    if (res) {
-      setTopUsers(res);
+      const res = await searchUsers(params);
+
+      if (res) {
+        setTimeout(() => {
+          setTopUsers(res as User[]);
+          setLoading(false);
+        }, 1000);
+      }
+    } catch (err) {
+      alert(err);
     }
   }
 
@@ -70,24 +77,32 @@ export function Home() {
           <span>Github!</span>
           <SearchContainer>
             <Input
-              type='search'
-              placeholder='Pesquisar'
-              onChange={event => setSearch(event.target.value)}
+              type="search"
+              placeholder="Pesquisar"
+              onChange={(event) => setSearch(event.target.value)}
               value={search}
             />
-            <Button onClick={handleSearch}><img src={searchIcon} alt='search icon' /></Button>
+            <Button onClick={handleSearch}>
+              <img src={searchIcon} alt="search icon" />
+            </Button>
           </SearchContainer>
         </div>
-        <img src={octocat} alt='octocat' />
+        <img src={octocat} alt="octocat" />
       </Banner>
       <TopUsersContainer>
-        <h2>Top users</h2>
-        <TopUsersCards>
-          {topUsers.map((user: User) => {
-            return <CardUser {...user} key={user.login} />
-          })}
-        </TopUsersCards>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <h2 style={{ marginLeft: "1.5rem" }}>Top users</h2>
+            <TopUsersCards>
+              {topUsers.map((user: User) => (
+                <CardUser key={user.login} {...user} />
+              ))}
+            </TopUsersCards>
+          </>
+        )}
       </TopUsersContainer>
-    </Container >
+    </Container>
   );
 }
