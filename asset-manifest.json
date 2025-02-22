@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/devbook/static/js/main.aca8d360.js",
+    "main.js": "/devbook/static/js/main.1a51a658.js",
     "static/media/octocat.png": "/devbook/static/media/octocat.74b49201fe2d72b3e795.png",
     "static/media/search-icon.svg": "/devbook/static/media/search-icon.b2e280971ed85190feb70d454f3fb53c.svg",
     "index.html": "/devbook/index.html",
-    "main.aca8d360.js.map": "/devbook/static/js/main.aca8d360.js.map"
+    "main.1a51a658.js.map": "/devbook/static/js/main.1a51a658.js.map"
   },
   "entrypoints": [
-    "static/js/main.aca8d360.js"
+    "static/js/main.1a51a658.js"
   ]
 }
