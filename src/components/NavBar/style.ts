@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   display: flex;
-  padding: 0 1rem;
-
+  padding: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,18 +13,15 @@ export const Container = styled.div`
   background: #000;
 
   a img {
-    max-width: 100%;
+    max-width: 64%;
   }
-
-  z-index: 100;
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  flex: 1;
 `;
 
 export const SearchContent = styled.div`
@@ -37,13 +35,13 @@ export const Input = styled.input`
   border-radius: 22px 0 0 22px;
   border: 0;
   outline: none;
-  padding: 0 1rem;
-  width: 18rem;
+  padding: 0 0.5rem;
+  width: 100%;
   background: #dcdaf6;
 
   font-weight: normal;
-  font-size: 1.5rem;
-  line-height: 2.2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #656565;
 `;
 
@@ -59,6 +57,6 @@ export const Button = styled.button`
   justify-content: center;
 
   img {
-    width: 1.3rem;
+    width: 1rem;
   }
 `;

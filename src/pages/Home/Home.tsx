@@ -72,8 +72,7 @@ export function Home() {
     <Container>
       <Banner>
         <div>
-          <span>Stalk people on</span>
-          <span>Github!</span>
+          <span>Stalk people on Github!</span>
           <SearchContainer>
             <Input
               type="search"
@@ -95,7 +94,7 @@ export function Home() {
           <>
             <h2 style={{ marginLeft: "1.5rem" }}>Top users</h2>
             <TopUsersCards>
-              {topUsers.map((user: User) => (
+              {topUsers.map((user: User, index) => (
                 <CardUser key={user.login} {...user} />
               ))}
             </TopUsersCards>

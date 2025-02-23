@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 8rem;
+  margin-top: 88px;
   padding-bottom: 3rem;
 
   display: flex;
@@ -18,11 +18,10 @@ export const Banner = styled.section`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 1rem 0 1rem 4rem;
+  padding: 1rem 0 1rem 1rem;
 
   > img {
-    max-width: 30%;
-    margin: 0 6rem;
+    max-width: 24%;
   }
 
   > div {
@@ -30,16 +29,15 @@ export const Banner = styled.section`
     flex-direction: column;
 
     span {
-      line-height: 4.5rem;
       color: white;
-      font-size: 4rem;
+      font-size: 32px;
     }
   }
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
-  margin-top: 3rem;
+  margin-top: 16px;
   background: #dcdaf6;
   border-radius: 8px;
 `;
@@ -49,12 +47,11 @@ export const Input = styled.input`
   border-radius: 8px;
   border: 0;
   outline: none;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   background: #dcdaf6;
 
   font-weight: normal;
-  font-size: 1.5rem;
-  line-height: 2.7rem;
+  font-size: 1rem;
   color: #656565;
 `;
 
@@ -62,7 +59,7 @@ export const Button = styled.button`
   background: var(--primary);
   border: 0;
   cursor: pointer;
-  padding: 0.8rem;
+  padding: 0.5rem;
   border-radius: 0 8px 8px 0;
 
   display: flex;
@@ -70,7 +67,7 @@ export const Button = styled.button`
   justify-content: center;
 
   img {
-    width: 1.3rem;
+    width: 1.5rem;
   }
 `;
 
@@ -112,6 +109,4 @@ export const TopUsersCards = styled.section`
   grid-template-columns: auto;
   grid-auto-flow: column;
   gap: 2rem;
-
-  padding: 0 1.5rem;
 `;

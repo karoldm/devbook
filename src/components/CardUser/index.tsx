@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Container, UserInfo } from "./style";
 
@@ -8,9 +9,13 @@ type User = {
   bio: string;
 };
 
-export function CardUser({ name, login, avatar_url, bio }: User) {
+type Props = User & {
+  style?: CSSProperties;
+};
+
+export function CardUser({ name, login, avatar_url, bio, style }: Props) {
   return (
-    <Link to={`/profile/${login}`}>
+    <Link style={style} to={`/profile/${login}`}>
       <Container>
         <img src={avatar_url} alt={`${name} Avatar`} />
         <UserInfo>
