@@ -36,6 +36,10 @@ export function Results() {
 
       if (res) {
         setResults((prev) => [...prev, ...res]);
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
       }
     } catch (err) {
       alert(err);
@@ -62,7 +66,7 @@ export function Results() {
               return <CardUser {...user} key={key} />;
             })}
           </UsersContainer>
-          {!loading && (results.length * page) % 10 == 0 && (
+          {!loading && results.length != 0 && (results.length * page) % 10 == 0 && (
             <LoadMoreButton onClick={() => setPage((prev) => prev + 1)}>
               Carregar mais
             </LoadMoreButton>
