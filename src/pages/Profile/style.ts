@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin-top: 5rem;
   min-height: 100vh;
-  padding: 3rem 4rem;
+  padding: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -33,27 +33,25 @@ export const Container = styled.div`
 `;
 
 export const Stats = styled.section`
-  background: var(--filter-background);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
   margin-top: 1rem;
 
   display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-around;
+  gap: 2rem;
+  align-items: start;
+  justify-content: start;
   flex-wrap: wrap;
 `;
 
 export const Repos = styled.section`
-  background: var(--filter-background);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
   margin-top: 1rem;
 
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  justify-content: space-around;
+  gap: 2rem;
+  justify-content: start;
   flex-wrap: wrap;
 `;

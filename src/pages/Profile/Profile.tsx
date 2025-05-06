@@ -1,21 +1,24 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { Container, Repos, Stats } from "./style";
 
-import api from "../../services/api";
+import { api } from "../../services/api";
 
 type Repositorio = {
   name: string;
   id: string;
   url: string;
+  owner?: {
+    login: string;
+  }
 };
 
 export function Profile() {
   const [repos, setRepos] = useState<Repositorio[]>([]);
   const { login } = useParams();
 
-  async function getRepos() {
+  const getRepos = useCallback(async (login) => {
     const res = await api.get(`/users/${login}/repos`);
 
     try {
@@ -23,11 +26,12 @@ export function Profile() {
         const repositorios: Repositorio[] = [];
 
         res.data.forEach((repo: Repositorio) => {
-          const { name, id } = repo;
+          console.log(repo);
+          const { name, id, owner } = repo;
           repositorios.push({
             name: name,
             id: id,
-            url: `https://github.com/${login}/${name}`,
+            url: `https://github.com/${owner ? owner.login : login}/${name}`,
           });
         });
 
@@ -36,16 +40,16 @@ export function Profile() {
     } catch (e) {
       console.log(e);
     }
-  }
+  }, []);
 
   useEffect(() => {
-    getRepos();
-  }, [login]);
+    getRepos(login);
+  }, [login, getRepos]);
 
   return (
     <Container>
       <h1>{login}</h1>
-      <details title="Github stats">
+      <details title="Github stats" open>
         <summary> Github stats</summary>
         <Stats>
           <img

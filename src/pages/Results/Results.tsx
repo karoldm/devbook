@@ -1,4 +1,4 @@
-import { Key, useEffect, useState } from "react";
+import { Key, useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { searchUsers } from "../../services/searcUsers";
@@ -22,7 +22,7 @@ export function Results() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-  async function getUsers() {
+  const getUsers = useCallback(async (search, page) => {
     try {
       setLoading(true);
 
@@ -50,21 +50,21 @@ export function Results() {
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
 
   useEffect(() => {
     // Resetar a página quando o termo de pesquisa mudar
     setPage(1);
     setResults([]);
-    getUsers();
-  }, [search]);
+    getUsers(search, 1);
+  }, [search, getUsers]);
 
   useEffect(() => {
     // apenas para paginação
     if (page > 1) {
-      getUsers();
+      getUsers(search, page);
     }
-  }, [page]);
+  }, [page, getUsers]);
 
   return (
     <Container>
