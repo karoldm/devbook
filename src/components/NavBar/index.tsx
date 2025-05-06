@@ -27,6 +27,11 @@ export function NavBar() {
     setSearch("");
   }
 
+  const submitForm = (event: React.FormEvent) => {
+    event.preventDefault();
+    handleSearch();
+  }
+
   return (
     <>
       <Container>
@@ -34,14 +39,14 @@ export function NavBar() {
           <img src={logo} alt="devbook" />
         </Link>
         <SearchContainer>
-          <SearchContent>
+          <SearchContent onSubmit={submitForm}>
             <Input
               type="search"
               placeholder="Pesquisar"
               onChange={(event) => setSearch(event.target.value)}
               value={search}
             />
-            <Button onClick={handleSearch}>
+            <Button type="submit">
               <img src={searchIcon} alt="search" />
             </Button>
           </SearchContent>

@@ -24,7 +24,7 @@ export const SearchContainer = styled.div`
   padding: 0.5rem 0;
 `;
 
-export const SearchContent = styled.div`
+export const SearchContent = styled.form`
   display: flex;
   background: #dcdaf6;
   border-radius: 22px;

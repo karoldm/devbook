@@ -68,19 +68,24 @@ export function Home() {
     getUsers();
   }, []);
 
+  const submitForm = (event: React.FormEvent) => {
+    event.preventDefault();
+    handleSearch();
+  };
+
   return (
     <Container>
       <Banner>
         <div>
           <span>Stalk people on Github!</span>
-          <SearchContainer>
+          <SearchContainer onSubmit={submitForm}>
             <Input
               type="search"
               placeholder="Pesquisar"
               onChange={(event) => setSearch(event.target.value)}
               value={search}
             />
-            <Button onClick={handleSearch}>
+            <Button type="submit">
               <img src={searchIcon} alt="search icon" />
             </Button>
           </SearchContainer>

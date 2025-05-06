@@ -35,7 +35,7 @@ export const Banner = styled.section`
   }
 `;
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   display: flex;
   margin-top: 16px;
   background: #dcdaf6;
