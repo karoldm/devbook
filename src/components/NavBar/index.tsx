@@ -31,7 +31,7 @@ export function NavBar() {
     <>
       <Container>
         <Link to="/">
-          <img src={logo} alt="devbook logo image" />
+          <img src={logo} alt="devbook" />
         </Link>
         <SearchContainer>
           <SearchContent>

@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   flex: 1;
 
-  padding: 2rem 4rem;
+  padding: 2rem;
   gap: 2rem;
 `;
 
@@ -18,7 +18,6 @@ export const Title = styled.h1`
 `;
 
 export const UsersContainer = styled.main`
-  background: var(--filter-background);
   width: 100%;
   padding: 1rem;
   border-radius: 8px;

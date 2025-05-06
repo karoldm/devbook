@@ -35,7 +35,11 @@ export function Results() {
       const res = await searchUsers(params);
 
       if (res) {
-        setResults((prev) => [...prev, ...res]);
+        if (page === 1) {
+          setResults(res);
+        } else {
+          setResults((prev) => [...prev, ...res]);
+        }
         window.scrollTo({
           top: document.body.scrollHeight,
           behavior: "smooth",
@@ -49,29 +53,40 @@ export function Results() {
   }
 
   useEffect(() => {
+    // Resetar a página quando o termo de pesquisa mudar
+    setPage(1);
+    setResults([]);
     getUsers();
+  }, [search]);
+
+  useEffect(() => {
+    // apenas para paginação
+    if (page > 1) {
+      getUsers();
+    }
   }, [page]);
 
   return (
     <Container>
-      {loading ? (
+      {!loading && (
+        <Title>
+          {results.length} resultados para {search}
+        </Title>
+      )}
+
+      <UsersContainer>
+        {results.map((user: User, key: Key) => {
+          return <CardUser {...user} key={key} />;
+        })}
+      </UsersContainer>
+      {!loading && results.length !== 0 && (results.length * page) % 10 === 0 && (
+        <LoadMoreButton onClick={() => setPage((prev) => prev + 1)}>
+          Carregar mais
+        </LoadMoreButton>
+      )}
+
+      {loading && (
         <Loading />
-      ) : (
-        <>
-          <Title>
-            {results.length} resultados para {search}
-          </Title>
-          <UsersContainer>
-            {results.map((user: User, key: Key) => {
-              return <CardUser {...user} key={key} />;
-            })}
-          </UsersContainer>
-          {!loading && results.length != 0 && (results.length * page) % 10 == 0 && (
-            <LoadMoreButton onClick={() => setPage((prev) => prev + 1)}>
-              Carregar mais
-            </LoadMoreButton>
-          )}
-        </>
       )}
     </Container>
   );
