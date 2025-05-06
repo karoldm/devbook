@@ -64,7 +64,7 @@ export function Results() {
     if (page > 1) {
       getUsers(search, page);
     }
-  }, [page, getUsers]);
+  }, [page, search, getUsers]);
 
   return (
     <Container>
